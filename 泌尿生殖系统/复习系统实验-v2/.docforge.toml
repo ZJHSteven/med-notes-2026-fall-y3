@@ -34,3 +34,19 @@ source = "03-数据库概览.md"
 profile = "markdown-dual"
 diff = "text"
 outputs = ["html", "pdf"]
+
+[[document]]
+id = "aki-audit"
+title = "04 · AKI切分目录与关系审计"
+source = "04-AKI切分目录与关系审计.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]
+
+[[document]]
+id = "aki-review"
+title = "05 · AKI复习导出 v0"
+source = "05-AKI复习导出-v0.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]

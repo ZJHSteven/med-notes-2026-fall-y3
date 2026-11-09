@@ -66,28 +66,45 @@ TREE = [
     ("renal_function.foundation", "renal_function", "肾功能基础", "note_ai", None),
     ("aki", "renal_function", "急性肾损伤 AKI", "syllabus", "掌握"),
     ("aki.concept", "aki", "概念与核心特征", "knowledge_outline", "掌握"),
+    ("aki.concept.features", "aki.concept", "主要特点", "note_ai", None),
+    ("aki.concept.naming", "aki.concept", "ARF与AKI命名", "note_ai", None),
     ("aki.etiology", "aki", "病因分类", "knowledge_outline", "掌握"),
     ("aki.etiology.prerenal", "aki.etiology", "肾前性", "knowledge_outline", None),
     ("aki.etiology.intrinsic", "aki.etiology", "肾性", "knowledge_outline", None),
+    ("aki.etiology.intrinsic.atn", "aki.etiology.intrinsic", "急性肾小管坏死的原因", "note_ai", None),
     ("aki.etiology.postrenal", "aki.etiology", "肾后性", "knowledge_outline", None),
     ("aki.mechanism", "aki", "发病机制", "knowledge_outline", "掌握"),
     ("aki.mechanism.hemo", "aki.mechanism", "肾血管及血流动力学异常", "knowledge_outline", None),
+    ("aki.mechanism.hemo.perfusion", "aki.mechanism.hemo", "肾灌注压与自身调节", "note_ai", None),
+    ("aki.mechanism.hemo.vasoconstriction", "aki.mechanism.hemo", "肾血管收缩", "note_ai", None),
+    ("aki.mechanism.hemo.endothelial", "aki.mechanism.hemo", "肾小球毛细血管内皮细胞肿胀", "note_ai", None),
+    ("aki.mechanism.hemo.coagulation", "aki.mechanism.hemo", "肾血管内凝血", "note_ai", None),
     ("aki.mechanism.tubular", "aki.mechanism", "肾小管损伤", "knowledge_outline", None),
+    ("aki.mechanism.tubular.cellinjury", "aki.mechanism.tubular", "肾小管上皮细胞损伤机制", "note_ai", None),
     ("aki.mechanism.obstruction", "aki.mechanism.tubular", "肾小管阻塞", "note_ai", None),
     ("aki.mechanism.backleak", "aki.mechanism.tubular", "原尿反漏", "note_ai", None),
     ("aki.mechanism.tgf", "aki.mechanism.tubular", "管球反馈异常", "note_ai", None),
     ("aki.mechanism.kf", "aki.mechanism", "肾小球滤过系数降低", "knowledge_outline", None),
-    ("aki.oliguric", "aki", "少尿期", "knowledge_outline", "掌握"),
-    ("aki.oliguric.urine", "aki.oliguric", "尿量与尿液改变", "note_ai", None),
+    ("aki.clinical", "aki", "临床表现", "note_ai", None),
+    ("aki.clinical.stages", "aki.clinical", "少尿型AKI分期", "note_ai", None),
+    ("aki.oliguric", "aki.clinical", "少尿期", "knowledge_outline", "掌握"),
+    ("aki.oliguric.urine", "aki.oliguric", "尿量变化", "note_ai", None),
+    ("aki.oliguric.hematuria", "aki.oliguric", "血尿与血尿来源", "note_ai", None),
+    ("aki.oliguric.proteinuria", "aki.oliguric", "蛋白尿", "note_ai", None),
+    ("aki.oliguric.casts", "aki.oliguric", "管型尿", "note_ai", None),
+    ("aki.oliguric.urine_indices", "aki.oliguric", "尿比重与尿钠", "note_ai", None),
+    ("aki.oliguric.differential", "aki.oliguric", "肾前性与器质性鉴别", "note_ai", None),
     ("aki.oliguric.fena", "aki.oliguric", "FENa与功能性/器质性鉴别", "note_ai", None),
     ("aki.oliguric.water", "aki.oliguric", "水潴留", "note_ai", None),
     ("aki.oliguric.azotemia", "aki.oliguric", "氮质血症", "note_ai", None),
     ("aki.oliguric.hyperk", "aki.oliguric", "高钾血症及机制", "note_ai", None),
     ("aki.oliguric.acidosis", "aki.oliguric", "代谢性酸中毒及机制", "note_ai", None),
-    ("aki.diuretic", "aki", "多尿期", "knowledge_outline", "掌握"),
+    ("aki.oliguric.summary", "aki.oliguric", "少尿期临床表现总结", "note_ai", None),
+    ("aki.diuretic", "aki.clinical", "多尿期", "knowledge_outline", "掌握"),
     ("aki.diuretic.mechanism", "aki.diuretic", "多尿的机制", "note_ai", None),
-    ("aki.recovery", "aki", "恢复期", "knowledge_outline", "掌握"),
-    ("aki.nonoliguric", "aki", "非少尿型AKI", "note_ai", None),
+    ("aki.diuretic.risk", "aki.diuretic", "多尿期风险", "note_ai", None),
+    ("aki.recovery", "aki.clinical", "恢复期", "knowledge_outline", "掌握"),
+    ("aki.nonoliguric", "aki.clinical", "非少尿型AKI", "note_ai", None),
 
     ("crf", "renal_function", "慢性肾功能不全", "syllabus", "掌握"),
     ("crf.mechanism", "crf", "发病机制", "knowledge_outline", "掌握"),
@@ -107,14 +124,11 @@ TREE = [
 ]
 
 RELATIONS = [
-    ("renal_function.foundation", "aki.mechanism", "prerequisite", 1.0, "理解滤过/肾小管后再看AKI机制"),
-    ("aki.concept", "aki.etiology", "prerequisite", 1.0, "先知道AKI是什么"),
-    ("aki.etiology", "aki.mechanism", "prerequisite", 0.8, "病因帮助理解机制"),
-    ("aki.concept", "aki.oliguric", "prerequisite", 1.0, "先理解AKI再进入少尿期"),
-    ("aki.oliguric", "aki.oliguric.hyperk", "prerequisite", 1.0, "高钾属于少尿期变化"),
-    ("aki.oliguric", "aki.oliguric.acidosis", "prerequisite", 1.0, "酸中毒属于少尿期变化"),
-    ("aki.oliguric", "aki.diuretic", "prerequisite", 0.7, "按病程阶段阅读"),
-    ("aki.diuretic", "aki.recovery", "prerequisite", 0.7, "按病程阶段阅读"),
+    ("renal_function.foundation", "aki.mechanism", "prerequisite", 1.0, "理解GFR、滤过屏障和肾小管后再看AKI机制更顺"),
+    ("aki.concept", "aki.etiology", "prerequisite", 0.8, "先建立AKI概念框架"),
+    ("aki.etiology", "aki.mechanism", "prerequisite", 0.6, "病因是机制的上下文，但不是要求背完所有病因细节"),
+    ("aki.oliguric", "aki.diuretic", "sequence", 1.0, "少尿型AKI病程自然顺序"),
+    ("aki.diuretic", "aki.recovery", "sequence", 1.0, "少尿型AKI病程自然顺序"),
     ("pharm.diuretic.class", "pharm.diuretic.loop", "prerequisite", 0.7, "先有分类框架"),
     ("pharm.diuretic.class", "pharm.diuretic.thiazide", "prerequisite", 0.7, "先有分类框架"),
     ("pharm.diuretic.class", "pharm.diuretic.ksparing", "prerequisite", 0.7, "先有分类框架"),
@@ -143,6 +157,68 @@ AKI_MAP = [
     (r"多尿期为什么出现多尿|多尿期 diuretic phase|多尿期仍不能", "aki.diuretic.mechanism"),
     (r"恢复期 recovery phase", "aki.recovery"),
     (r"非少尿型AKI", "aki.nonoliguric"),
+]
+
+# AKI clean-room segmentation for the current experiment.  The ranges are
+# inclusive and together cover L764-L2747 exactly once.  Non-knowledge class
+# notices / attendance / research-method interludes are preserved as fragments
+# with knowledge_node_id=NULL instead of being silently dropped.
+AKI_PLAN = [
+    (764, 780, "aki.concept", "knowledge"),
+    (781, 782, None, "meta_session"),
+    (783, 812, "aki.concept", "knowledge"),
+    (813, 831, None, "meta_notice"),
+    (832, 850, "aki.concept.features", "knowledge"),
+    (851, 882, "aki.concept.naming", "knowledge"),
+    (883, 898, "aki.etiology", "knowledge"),
+    (899, 1021, "aki.etiology.prerenal", "knowledge"),
+    (1022, 1042, "aki.etiology.prerenal", "knowledge"),
+    (1043, 1061, "aki.etiology.intrinsic", "knowledge"),
+    (1062, 1164, "aki.etiology.intrinsic.atn", "knowledge"),
+    (1165, 1202, "aki.etiology.postrenal", "knowledge"),
+    (1203, 1214, "aki.mechanism", "knowledge"),
+    (1215, 1225, "aki.mechanism.hemo", "knowledge"),
+    (1226, 1265, "aki.mechanism.hemo.perfusion", "knowledge"),
+    (1266, 1343, "aki.mechanism.hemo.vasoconstriction", "knowledge"),
+    (1344, 1407, "aki.mechanism.hemo.endothelial", "knowledge"),
+    (1408, 1447, "aki.mechanism.hemo.coagulation", "knowledge"),
+    (1448, 1484, None, "meta_extension"),
+    (1485, 1510, "aki.mechanism.tubular", "knowledge"),
+    (1511, 1529, None, "meta_notice"),
+    (1530, 1578, "aki.mechanism.tubular.cellinjury", "knowledge"),
+    (1579, 1598, "aki.mechanism.obstruction", "knowledge"),
+    (1599, 1648, "aki.mechanism.obstruction", "knowledge"),
+    (1649, 1665, None, "meta_notice"),
+    (1666, 1683, "aki.mechanism.obstruction", "knowledge"),
+    (1684, 1727, "aki.mechanism.obstruction", "knowledge"),
+    (1728, 1750, "aki.mechanism.obstruction", "knowledge"),
+    (1751, 1786, "aki.mechanism.backleak", "knowledge"),
+    (1787, 1805, "aki.mechanism.backleak", "knowledge"),
+    (1806, 1845, "aki.mechanism.backleak", "knowledge"),
+    (1846, 1883, "aki.mechanism.backleak", "knowledge"),
+    (1884, 1911, "aki.mechanism.tgf", "knowledge"),
+    (1912, 1962, "aki.mechanism.kf", "knowledge"),
+    (1963, 2008, "aki.mechanism", "knowledge"),
+    (2009, 2025, "aki.clinical", "knowledge"),
+    (2026, 2046, "aki.clinical.stages", "knowledge"),
+    (2047, 2066, "aki.oliguric.urine", "knowledge"),
+    (2067, 2092, "aki.oliguric.hematuria", "knowledge"),
+    (2093, 2125, "aki.oliguric.hematuria", "knowledge"),
+    (2126, 2133, "aki.oliguric.proteinuria", "knowledge"),
+    (2134, 2167, "aki.oliguric.casts", "knowledge"),
+    (2168, 2183, "aki.oliguric.urine_indices", "knowledge"),
+    (2184, 2218, "aki.oliguric.differential", "knowledge"),
+    (2219, 2276, "aki.oliguric.fena", "knowledge"),
+    (2277, 2322, "aki.oliguric.water", "knowledge"),
+    (2323, 2348, "aki.oliguric.azotemia", "knowledge"),
+    (2349, 2421, "aki.oliguric.hyperk", "knowledge"),
+    (2422, 2468, "aki.oliguric.acidosis", "knowledge"),
+    (2469, 2487, "aki.oliguric.summary", "knowledge"),
+    (2488, 2522, "aki.diuretic", "knowledge"),
+    (2523, 2612, "aki.diuretic.mechanism", "knowledge"),
+    (2613, 2653, "aki.diuretic.risk", "knowledge"),
+    (2654, 2686, "aki.recovery", "knowledge"),
+    (2687, 2747, "aki.nonoliguric", "knowledge"),
 ]
 
 
@@ -230,64 +306,29 @@ def build():
     doc_id = "note3"
     raw = con.execute("SELECT raw_text FROM source_documents WHERE id=?", (doc_id,)).fetchone()[0]
     lines = raw.splitlines()
-    heads = []
-    stack = {}
-    for i, line in enumerate(lines):
-        m = H_RE.match(line)
-        if not m:
-            continue
-        level = len(m.group(1))
-        title = m.group(2).strip()
-        for k in list(stack):
-            if k >= level:
-                del stack[k]
-        stack[level] = title
-        heads.append((i, level, title, " > ".join(stack[k] for k in sorted(stack))))
+    # The AKI demo is now an audited, exhaustive line plan.  Every line in the
+    # AKI scope is owned exactly once, including meta/non-knowledge material.
+    expected = 764
+    for start, end, node_id, kind in AKI_PLAN:
+        if start != expected:
+            raise RuntimeError(f"AKI_PLAN gap/overlap before line {start}; expected {expected}")
+        expected = end + 1
+    if expected != 2748:
+        raise RuntimeError(f"AKI_PLAN must end at 2747, got {expected-1}")
 
-    selected = []
-    for i, (line_idx, level, title, hpath) in enumerate(heads):
-        if level > 2:
-            continue
-        node_id = None
-        for pattern, nid in AKI_MAP:
-            if re.search(pattern, title):
-                node_id = nid
-                break
-        if not node_id:
-            continue
-        selected.append((i, line_idx, subtree_end(heads, i, len(lines)), level, title, node_id))
-
-    selected.sort(key=lambda x: x[1])
-    # Some parent headings are already a complete exam/review question.  Their
-    # child headings are answer points, not independent knowledge atoms.
-    keep_subtree = re.compile(r"多尿期为什么出现多尿|高钾血症发生机制|少尿期：代谢性酸中毒")
-    filtered = []
-    owned_until = -1
-    for item in selected:
-        hi, start, natural_end, level, title, node_id = item
-        if start <= owned_until:
-            continue
-        filtered.append(item)
-        if keep_subtree.search(title):
-            owned_until = natural_end
-    selected = filtered
-
-    for k, (hi, start, natural_end, level, title, node_id) in enumerate(selected):
-        end = natural_end
-        if k + 1 < len(selected):
-            end = min(end, selected[k + 1][1] - 1)
-        if end < start:
-            continue
-        text = "\n".join(lines[start:end + 1]).rstrip() + "\n"
-        fid = f"aki.demo.{k + 1:03d}"
+    for k, (start, end, node_id, kind) in enumerate(AKI_PLAN, 1):
+        text = "\n".join(lines[start - 1:end]).rstrip() + "\n"
+        fid = f"aki.clean.{k:03d}"
+        is_knowledge = node_id is not None
         con.execute(
             "INSERT INTO fragments VALUES(?,?,?,?,?,?,?,?,?,?)",
-            (fid, doc_id, node_id, start + 1, end + 1, text, sha(text),
-             "heading_tree+ai_rule_demo", "demo_confirmed", "reviewed"),
+            (fid, doc_id, node_id, start, end, text, sha(text),
+             "manual_audit_v1", "confirmed" if is_knowledge else kind,
+             "reviewed" if is_knowledge else "excluded"),
         )
         members = con.execute(
             "SELECT id FROM candidate_segments WHERE source_document_id=? AND start_line BETWEEN ? AND ? ORDER BY ordinal",
-            (doc_id, start + 1, end + 1),
+            (doc_id, start, end),
         ).fetchall()
         for mi, (sid,) in enumerate(members, 1):
             con.execute("INSERT INTO fragment_members VALUES(?,?,?)", (fid, sid, mi))
@@ -494,6 +535,157 @@ f"""# SQLite 数据库概览
 
 先把 797 个标题候选段全部跑一遍 KEEP / DESCEND / SPLIT_INLINE，得到全课程最终原子片段；再把每个片段映射到唯一知识坑位。权重在这两步稳定后再正式引入。
 """, encoding="utf-8")
+
+    # --- AKI audit: make the model inspectable for a human reviewer. ---
+    direct_counts = dict(con.execute(
+        "SELECT knowledge_node_id, count(*) FROM fragments WHERE knowledge_node_id IS NOT NULL GROUP BY knowledge_node_id"
+    ).fetchall())
+    children = {}
+    title_by_id = {}
+    for nid, parent, title, *_ in TREE:
+        title_by_id[nid] = title
+        children.setdefault(parent, []).append(nid)
+
+    def subtree_count(nid):
+        return direct_counts.get(nid, 0) + sum(subtree_count(c) for c in children.get(nid, []))
+
+    tree_lines = []
+    def emit_tree(nid, depth=0):
+        if subtree_count(nid) == 0:
+            return
+        tree_lines.append(
+            f"{'  ' * depth}- **{title_by_id[nid]}** — 直挂片段 {direct_counts.get(nid,0)}，子树合计 {subtree_count(nid)}"
+        )
+        for child in children.get(nid, []):
+            if child.startswith("aki"):
+                emit_tree(child, depth + 1)
+    emit_tree("aki")
+
+    meta_rows = con.execute(
+        "SELECT id,start_line,end_line,review_status,text FROM fragments WHERE source_document_id='note3' AND knowledge_node_id IS NULL ORDER BY start_line"
+    ).fetchall()
+    meta_lines = []
+    for fid, start, end, status, text in meta_rows:
+        first = next((x.strip('# ').strip() for x in text.splitlines() if x.strip()), "")
+        meta_lines.append(f"- L{start}–L{end}｜`{status}`｜{first}")
+
+    rel_rows = con.execute(
+        """SELECT a.title,b.title,r.relation_type,r.strength,r.note
+           FROM node_relations r
+           JOIN knowledge_nodes a ON a.id=r.from_node_id
+           JOIN knowledge_nodes b ON b.id=r.to_node_id
+           WHERE a.id LIKE 'aki%' OR b.id LIKE 'aki%' OR a.id='renal_function.foundation'
+           ORDER BY r.relation_type,a.title,b.title"""
+    ).fetchall()
+    rel_lines2 = [f"- **{a}** → **{b}**｜`{kind}`｜{note}" for a,b,kind,strength,note in rel_rows]
+    evidence_counts = dict(con.execute(
+        "SELECT source_kind,count(*) FROM evidence GROUP BY source_kind"
+    ).fetchall())
+    node_score_count = con.execute("SELECT count(*) FROM node_scores").fetchone()[0]
+    knowledge_line_count = con.execute(
+        "SELECT sum(end_line-start_line+1) FROM fragments WHERE source_document_id='note3' AND knowledge_node_id IS NOT NULL"
+    ).fetchone()[0]
+    meta_line_count = con.execute(
+        "SELECT sum(end_line-start_line+1) FROM fragments WHERE source_document_id='note3' AND knowledge_node_id IS NULL"
+    ).fetchone()[0]
+    knowledge_fragment_count = con.execute(
+        "SELECT count(*) FROM fragments WHERE source_document_id='note3' AND knowledge_node_id IS NOT NULL"
+    ).fetchone()[0]
+    meta_fragment_count = len(meta_rows)
+
+    (HERE / "04-AKI切分目录与关系审计.md").write_text(
+f"""# AKI切分目录与关系审计
+
+## 当前做到什么程度
+
+本次只审计 AKI 段落：原笔记 `3-急性肾损伤机制与表现.md` 的 **L764–L2747**。
+
+- 范围总计：**1984 行**。
+- 知识正文：**{knowledge_line_count} 行 / {knowledge_fragment_count} 个知识片段**。
+- 非知识但保留：**{meta_line_count} 行 / {meta_fragment_count} 个 meta 片段**。
+- 覆盖率：**100%**。这 1984 行每一行都恰好属于一个 fragment，没有漏行、没有重叠。
+- 空行没有“消失”：空行跟随所在 fragment 一起保存；源文档全文也另存于 `source_documents.raw_text`。
+
+## 目录树与每个目录的片段数
+
+这里的“直挂”指 fragment 直接归到这个坑位；“子树合计”包含所有子目录片段。
+
+{chr(10).join(tree_lines)}
+
+## 没有进入知识树、但仍保存的内容
+
+{chr(10).join(meta_lines)}
+
+这些内容不会参加知识点评分，但仍在数据库中，因此既不会丢字，也可以完整还原原笔记。
+
+## 当前关系图
+
+树本身已经表达“属于谁”，所以不再拿 prerequisite 重复画父子关系。目前 AKI 只保留真正需要的跨枝关系：
+
+{chr(10).join(rel_lines2)}
+
+可以把它读成：
+
+```text
+肾功能基础 ── prerequisite ──> AKI发病机制
+AKI概念框架 ─ prerequisite ──> 病因分类 ── soft prerequisite ──> 发病机制
+
+少尿期 ── sequence ──> 多尿期 ── sequence ──> 恢复期
+```
+
+同一节点允许多条入边和出边；这里只是当前 AKI 最小必要关系，不是“一个节点只能有一条关系”。
+
+## 加权目前做到哪
+
+**还没有正式开始算总分。**当前数据库只有示例 evidence，用来验证结构：
+
+- syllabus：{evidence_counts.get('syllabus',0)} 条
+- knowledge_outline：{evidence_counts.get('knowledge_outline',0)} 条
+- classroom：{evidence_counts.get('classroom',0)} 条
+- 串讲/往年题：0 条正式录入
+- 题型适配：0 条正式录入
+- `node_scores`：**{node_score_count} 条**
+
+所以现在没有一个“看似精确但其实没审计完”的分数。下一阶段应当是逐节点灌证据，然后再选择评分 scheme 重算。
+""", encoding="utf-8")
+
+    # --- A reviewable export: source-order knowledge only, with explicit paths. ---
+    review_rows = con.execute(
+        """SELECT f.id,f.start_line,f.end_line,n.canonical_path,f.text
+           FROM fragments f
+           JOIN knowledge_nodes n ON n.id=f.knowledge_node_id
+           WHERE f.source_document_id='note3'
+           ORDER BY f.start_line"""
+    ).fetchall()
+    parts = [
+        "# AKI复习导出 v0\n\n",
+        "> 这是**切分/目录模型验收版**，不是最终评分版。正文全部来自原ClassFlow笔记；当前顺序按原课自然顺序，meta通知已移到文末，不重写正文。\n\n",
+        "> 真正排序权重尚未定稿；现在先看‘一个片段是不是一个合理复习单元、目录坑位是不是合理’。\n\n",
+    ]
+    last_path = None
+    signal_re = re.compile(r"【([^】]*(?:重点|考点|考试|简答|论述|掌握|三最)[^】]*)】")
+    for fid, start, end, path, text in review_rows:
+        if path != last_path:
+            parts.append(f"\n---\n\n## {path}\n\n")
+            last_path = path
+        signals = []
+        for s in signal_re.findall(text):
+            if s not in signals:
+                signals.append(s)
+        extra = []
+        if "很容易出论述题" in text:
+            extra.append("很容易出论述题")
+        if "可能考简答" in text or "特别适合出" in text:
+            extra.append("简答题强信号")
+        meta = f"> 原文 L{start}–L{end}｜片段 `{fid}`"
+        if signals or extra:
+            meta += "｜课堂显式信号：" + "、".join(signals + extra)
+        parts.extend([meta + "\n\n", text.rstrip() + "\n\n"])
+
+    parts.append("\n---\n\n## 保留但不参与知识排序的原文\n\n")
+    for fid, start, end, status, text in meta_rows:
+        parts.append(f"> L{start}–L{end}｜`{status}`｜`{fid}`\n\n{text.rstrip()}\n\n")
+    (HERE / "05-AKI复习导出-v0.md").write_text("".join(parts), encoding="utf-8")
 
 
 if __name__ == "__main__":
