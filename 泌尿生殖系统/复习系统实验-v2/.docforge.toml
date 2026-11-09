@@ -1,0 +1,36 @@
+[project]
+id = "uro-study-tree-exp-v1"
+title = "泌尿生殖系统复习编译器 · 树+片段实验"
+default = "design"
+
+[[document]]
+id = "design"
+title = "00 · 模型与切分原则"
+source = "00-模型与切分原则.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]
+
+[[document]]
+id = "split-audit"
+title = "01 · 五篇笔记切分审计"
+source = "01-切分审计.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]
+
+[[document]]
+id = "aki-demo"
+title = "02 · AKI 知识树与片段样例"
+source = "02-AKI树与片段样例.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]
+
+[[document]]
+id = "db-overview"
+title = "03 · SQLite 数据库概览"
+source = "03-数据库概览.md"
+profile = "markdown-dual"
+diff = "text"
+outputs = ["html", "pdf"]
